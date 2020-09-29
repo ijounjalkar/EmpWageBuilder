@@ -32,7 +32,8 @@ public class EmpWageBuilder{
       }
       public static void main(String [ ] args){
             computeEmpWage( "Dmart", 20, 2, 10);
-           
+            computeEmpWage( "Reliance", 10, 4, 20);
+            computeEmpWage( "Bigbasket", 10, 3, 10);
             }
      
 } 
