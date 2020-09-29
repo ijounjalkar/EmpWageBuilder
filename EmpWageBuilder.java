@@ -1,9 +1,21 @@
-public class EmpWageBuilder{
+public class EmpWageBuilder {
   public static final int IS_PART_TIME = 1;
   public static final int IS_FULL_TIME = 2;
 
-  public static int computeEmpWage(String company, int empRatePerHour, int numofWorkingdays, int maxhourpermonth) {
+  private final String company;
+  private final int empRatePerHour;
+  private final int numofWorkingdays;
+  private final int maxhourpermonth;
+  private int totalEmpWage;
 
+  public EmpWageBuilder(String company, int empRatePerHour, int numofWorkingdays, int maxhourpermonth) {
+   this.company = company;
+   this.empRatePerHour = empRatePerHour;
+   this.numofWorkingdays = numofWorkingdays;
+   this.maxhourpermonth = maxhourpermonth;
+   }
+
+  public void computeEmpWage() {
        int emphrs =0;
        int totalEmphrs = 0;
        int totalworkingdays = 0;
@@ -25,15 +37,23 @@ public class EmpWageBuilder{
            totalEmphrs += emphrs;
            System.out.println("Day#: " +totalworkingdays+ "Emp Hrs: " +emphrs);
          }
-         int totalEmpWage = totalEmphrs * empRatePerHour;
-         System.out.println("Total Emp Wage for company: " +company+" is: "+totalEmpWage);
-         return totalEmpWage;
-         javac
+         totalEmpWage = totalEmphrs * empRatePerHour;
+         
       }
+      public String toString(){
+         return "Total Emp Wage for company: " +company+"  is: " +totalEmpWage;
+        } 
       public static void main(String [ ] args){
-            computeEmpWage( "Dmart", 20, 2, 10);
-            computeEmpWage( "Reliance", 10, 4, 20);
-            computeEmpWage( "Bigbasket", 10, 3, 10);
+            EmpWageBuilder dmart = new EmpWageBuilder ( "Dmart", 20, 2, 10);
+            EmpWageBuilder reliance = new EmpWageBuilder ( "Reliance", 10, 4, 20);
+            EmpWageBuilder bigbasket = new EmpWageBuilder ( "Bigbasket", 10, 3, 10);
+            dmart.computeEmpWage( );
+            System.out.println(dmart);
+            reliance.computeEmpWage( );
+            System.out.println(reliance);
+            bigbasket.computeEmpWage( );
+            System.out.println(bigbasket);
+
             }
      
 } 
